@@ -14,7 +14,7 @@ public class FluxPeripheralProvider implements IPeripheralProvider {
     @Override
     public LazyOptional<IPeripheral> getPeripheral(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull Direction direction) {
         if (level.getBlockEntity(blockPos) instanceof TileFluxController tile) {
-            return LazyOptional.of(() -> new FluxPeripheral(tile.getTransferHandler(), tile.getNetwork()));
+            return LazyOptional.of(() -> new FluxPeripheral(tile.getNetwork()));
         }
         return LazyOptional.empty();
     }
