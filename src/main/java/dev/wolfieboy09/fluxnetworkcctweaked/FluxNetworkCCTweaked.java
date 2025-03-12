@@ -1,8 +1,8 @@
 package dev.wolfieboy09.fluxnetworkcctweaked;
 
 import com.mojang.logging.LogUtils;
-import dan200.computercraft.api.ForgeComputerCraftAPI;
-import net.minecraftforge.fml.common.Mod;
+import dan200.computercraft.api.ComputerCraftAPI;
+import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
 
 @Mod(FluxNetworkCCTweaked.MOD_ID)
@@ -11,7 +11,7 @@ public class FluxNetworkCCTweaked {
     public static final String MOD_ID = "fncct";
 
     public FluxNetworkCCTweaked() {
-        ForgeComputerCraftAPI.registerPeripheralProvider(new FluxPeripheralProvider());
+        ComputerCraftAPI.registerGenericSource(new FluxPeripheral());
         LOGGER.info("Flux Computers when");
     }
 }
