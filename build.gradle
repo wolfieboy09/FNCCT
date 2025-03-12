@@ -70,12 +70,12 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    implementation fg.deobf("curse.maven:cc-tweaked-282001:4630521")
-    implementation fg.deobf("curse.maven:flux-networks-248020:4713885")
+    implementation fg.deobf("curse.maven:cc-tweaked-282001:5714507")
+    implementation fg.deobf("curse.maven:flux-networks-248020:5234697")
 
     // for mod testing stuff
-    runtimeOnly fg.deobf("curse.maven:jei-238222:5846864")
-    runtimeOnly fg.deobf("curse.maven:mekanism-268560:3875976")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:6075247")
+    runtimeOnly fg.deobf("curse.maven:mekanism-268560:6258796")
 }
 
 tasks.named('processResources', ProcessResources).configure {
