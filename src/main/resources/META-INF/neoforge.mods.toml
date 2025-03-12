@@ -14,29 +14,29 @@ authors="${mod_authors}"
 description='''${mod_description}'''
 
 [[dependencies.fncct]]
-    modId="forge"
-    mandatory=true
-    versionRange="${forge_version_range}"
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.fncct]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.fncct]]
     modId="computercraft"
-    mandatory=true
+    type="required"
     versionRange="[1.113.1,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.fncct]]
     modId="fluxnetworks"
-    mandatory=true
+    type="required"
     versionRange="[7.2.1,)"
     ordering="NONE"
     side="BOTH"
