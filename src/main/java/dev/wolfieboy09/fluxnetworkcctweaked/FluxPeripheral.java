@@ -2,16 +2,20 @@ package dev.wolfieboy09.fluxnetworkcctweaked;
 
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.peripheral.GenericPeripheral;
+import net.minecraft.client.Minecraft;
+import net.minecraft.server.MinecraftServer;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 import sonar.fluxnetworks.FluxNetworks;
+import sonar.fluxnetworks.api.network.SecurityLevel;
 import sonar.fluxnetworks.common.connection.FluxNetwork;
 import sonar.fluxnetworks.common.connection.NetworkStatistics;
 import sonar.fluxnetworks.common.device.TileFluxController;
 import sonar.fluxnetworks.common.device.TileFluxDevice;
 
 import java.util.Map;
+import java.util.UUID;
 
 @SuppressWarnings("unused")
 public class FluxPeripheral implements GenericPeripheral {
@@ -45,6 +49,27 @@ public class FluxPeripheral implements GenericPeripheral {
                 "connectionCount", stats.getConnectionCount()
         );
     }
+
+    @LuaFunction(mainThread = true)
+    public final @NotNull String getNetworkName(@NotNull TileFluxController controller) {
+        return controller.getNetwork().getNetworkName();
+    }
+
+    @LuaFunction(mainThread = true)
+    public final @NotNull String getSecurityLevel(@NotNull TileFluxController controller) {
+        // Returns "Private", "Encrypted", or "Public"
+        return controller.getNetwork().getSecurityLevel().getName();
+    }
+
+    @LuaFunction(mainThread = true)
+    public final @NotNull UUID getOwnerUuid(@NotNull TileFluxController controller) {
+        return controller.getNetwork().getOwnerUUID();
+    }
+
+//    @LuaFunction(mainThread = true)
+//    public final @NotNull String getOwnerUsername(@NotNull TileFluxController controller) {
+//        return "somehow get the username from UUID";
+//    }
 
     @Contract(pure = true)
     @Override
