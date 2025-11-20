@@ -68,7 +68,7 @@ repositories {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
-    implementation "maven.modrinth:cc-tweaked:1.116.2"
+    implementation "maven.modrinth:cc-tweaked:VfbdrEu0"
     implementation "curse.maven:flux-networks-248020:6089446"
 
     // for mod testing stuff
