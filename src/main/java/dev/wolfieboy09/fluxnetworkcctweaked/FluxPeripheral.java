@@ -78,6 +78,6 @@ public class FluxPeripheral implements GenericPeripheral {
     @Contract(pure = true)
     @Override
     public final String id() {
-        return FluxNetworks.MODID + ":" + "flux_controller";
+        return "flux_controller";
     }
 }
