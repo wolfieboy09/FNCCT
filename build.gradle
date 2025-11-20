@@ -1,6 +1,5 @@
 plugins {
     id 'java-library'
-    id 'eclipse'
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.0.183'
@@ -47,19 +46,29 @@ configurations {
 }
 
 repositories {
-    repositories {
-        maven {
-            url "https://cursemaven.com"
-            content {
-                includeGroup "curse.maven"
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
             }
+        }
+        filter {
+            includeGroup "maven.modrinth"
         }
     }
 }
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
-    implementation "curse.maven:cc-tweaked-282001:5714512"
+    implementation "maven.modrinth:cc-tweaked:1.116.2"
     implementation "curse.maven:flux-networks-248020:6089446"
 
     // for mod testing stuff
